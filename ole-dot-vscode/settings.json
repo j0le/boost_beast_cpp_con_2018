@@ -1,0 +1,7 @@
+{
+	"cmake.buildDirectory": "${workspaceFolder}/bin",
+	"cmake.generator": "Ninja",
+	"cmake.additionalKits": [
+		"${workspaceFolder}/.vscode/cmake-kits.json"
+	]
+}

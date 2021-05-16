@@ -1,0 +1,19 @@
+
+[
+  {
+    "name": "Oles Clang MSVC vcpkg-toolchain from workspace",
+    "visualStudio": "e508d06d",
+    "visualStudioArchitecture": "amd64",
+    "compilers":{
+      "C":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\Llvm\\x64\\bin\\clang-cl.exe",
+      "CXX":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\Llvm\\x64\\bin\\clang-cl.exe"
+    },
+    "toolchainFile":"C:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
+    "preferredGenerator":{
+      "name":"Ninja"
+    },
+    "cmakeSettings":{
+      "VCPKG_TARGET_TRIPLET":"x64-windows"
+    }
+  }
+]
