@@ -21,15 +21,27 @@
     <button class="echo-button" id="send">Send</button>
   </div>
   <script>
+    uri.value = "ws://"+window.location.host
+
     var ws = null;
     
     connect.onclick = function() {
+      if(ws){
+        if(ws.readyState === 3 /*closed*/){
+          ws = null
+        }
+        else{
+          messages.innterText +="[error] Please disconnect first\n"
+          return;
+        }
+      }
       ws = new WebSocket(uri.value);
       ws.onopen = function(ev) {
         messages.innerText += "[connection opened]\n";
       };
       ws.onclose = function(ev) {
         messages.innerText += "[connection closed]\n";
+        ws = null
       };
       ws.onmessage = function(ev) {
         messages.innerText += ev.data + "\n";
@@ -40,11 +52,15 @@
       };
     };
     disconnect.onclick = function() {
-      ws.close();
+      if(ws){
+        ws.close();
+      }
     };
     send.onclick = function() {
-      ws.send(userName.value + ": " + sendMessage.value);
-      sendMessage.value = "";
+      if(ws){
+        ws.send(userName.value + ": " + sendMessage.value);
+        sendMessage.value = "";
+      }
     };
     sendMessage.onkeyup = function(ev) {
       ev.preventDefault();
